@@ -55,3 +55,30 @@ class TrackListResource(Resource):
             return track_schema.dump(new_track), 201
         except ValidationError as err:
             return err.messages, 400
+        
+class TrackResource(Resource):
+    def get(self, track_id):
+        track_from_db = Track.query.get_or_404(track_id)
+        return track_schema.dump(track_from_db), 200
+    
+    def put(self, track_id):
+        track_from_db = Track.query.get_or_404(track_id)
+        if "title" in request.json:
+            track_from_db.title = request.json["title"]
+        if "time" in request.json:
+            track_from_db.time = request.json["time"]
+        if "bpm" in request.json:
+            track_from_db.bpm = request.json["bpm"]
+        if "genre" in request.json:
+            track_from_db.genre = request.json["genre"]
+        if "release_date" in request.json:
+            track_from_db.release_date = request.json["release_date"]
+        if "price" in request.json:
+            track_from_db.price = request.json["price"]
+        db.session.commit()
+        return track_schema.dump(track_from_db), 200
+    
+    def delete(self, track_id):
+        track_from_db = Track.query.get_or_404(track_id)
+        db.session.delete(track_from_db)
+        return "", 204 
