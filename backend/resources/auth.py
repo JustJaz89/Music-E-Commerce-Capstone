@@ -1,8 +1,8 @@
 from flask import request
 from flask_jwt_extended import create_access_token
 from flask_restful import Resource
-from database.models import db, User
-from database.schemas import register_schema, user_schema
+from database.models import db, User, Track
+from database.schemas import register_schema, user_schema, track_schema, tracks_schema
 from marshmallow import ValidationError
 import datetime
 
@@ -40,3 +40,18 @@ class LoginResource(Resource):
         }
         access_token = create_access_token(identity=str(user.id), additional_claims=additional_claims, expires_delta=expires)
         return {'access': access_token}, 200
+    
+class TrackListResource(Resource):
+    def get(self):
+        all_tracks = Track.query.all()
+        return tracks_schema.dump(all_tracks)
+    
+    def post(self):
+        form_data = request.get_json()
+        try:
+            new_track = track_schema.load(form_data)
+            db.session.add(new_track)
+            db.session.commit()
+            return track_schema.dump(new_track), 201
+        except ValidationError as err:
+            return err.messages, 400
