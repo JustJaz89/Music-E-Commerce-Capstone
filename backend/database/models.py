@@ -41,3 +41,5 @@ class Track(db.Model):
     genre = db.Column(db.String(255), nullable=False)
     release_date = db.Column(db.Date)
     price = db.Column(db.Float)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.relationship("User")

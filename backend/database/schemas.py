@@ -70,8 +70,10 @@ class TrackSchema(ma.Schema):
     genre = fields.String(required=True)
     release_date = fields.Date()
     price = fields.Float()
+    user_id = fields.Integer()
+    user = ma.Nested(UserSchema, many=False)
     class Meta:
-        fields = ("id", "title", "time", "bpm", "genre", "release_date", "price")
+        fields = ("id", "title", "time", "bpm", "genre", "release_date", "price", "user_id", "user")
 
     @post_load
     def create_track(self, data, **kwargs):
