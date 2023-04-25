@@ -10,6 +10,7 @@ class User(db.Model):
     first_name = db.Column(db.String(255), nullable=False)
     last_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    phone_number = db.Column(db.String(100), nullable=False)
 
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')
@@ -31,3 +32,12 @@ class Car(db.Model):
     user = db.relationship("User")
 
 # TODO: Add your models below, remember to add a new migration and upgrade database
+
+class Track(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    time = db.Column(db.Float)
+    bpm = db.Column(db.Integer)
+    genre = db.Column(db.String(255), nullable=False)
+    release_date = db.Column(db.Date)
+    price = db.Column(db.Float)
