@@ -1,6 +1,6 @@
 from flask_marshmallow import Marshmallow
 from marshmallow import post_load, fields
-from database.models import User, Car
+from database.models import User, Car, Track
 
 ma = Marshmallow()
 
@@ -61,3 +61,21 @@ cars_schema = CarSchema(many=True)
 
 
 # TODO: Add your schemas below
+
+class TrackSchema(ma.Schema):
+    id = fields.Integer(primary_key=True)
+    title = fields.String(required=True)
+    time = fields.Float()
+    bpm = fields.Integer()
+    genre = fields.String(required=True)
+    release_date = fields.Date()
+    price = fields.Float()
+    class Meta:
+        fields = ("id", "title", "time", "bpm", "genre", "release_date", "price")
+
+    @post_load
+    def create_track(self, data, **kwargs):
+        return Track(**data)
+    
+track_schema = TrackSchema()
+tracks_schema = TrackSchema(many=True)
