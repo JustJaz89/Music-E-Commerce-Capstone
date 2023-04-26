@@ -1,5 +1,5 @@
 from flask import request
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, verify_jwt_in_request
 from flask_restful import Resource
 from database.models import db, User, Track
 from database.schemas import register_schema, user_schema, track_schema, tracks_schema
@@ -82,3 +82,26 @@ class TrackResource(Resource):
         track_from_db = Track.query.get_or_404(track_id)
         db.session.delete(track_from_db)
         return "", 204 
+    
+# class GetTrackInformationResource(Resource):
+#     def get(self, track_id):
+#         tracks = Track.query.filter_by(track_id=track_id)
+#         tracks = tracks_schema.dump(tracks)
+#         response = {
+#             "track_id": track_id,
+#             "title": title,
+#             "time": time,
+#             "bpm": bpm,
+#             "genre": genre,
+#             "release_date": release_date,
+#             "price": price,
+#         }
+#         try:
+#             verify_jwt_in_request()
+#             # user_id = get_jwt_identity()
+#             # is_favorited = Favorite.query.filter_by(book_id=book_id, user_id=user_id).first() is not None
+#             # response['is_favorited'] = is_favorited
+#         except:
+#             pass
+        
+#         return response, 200

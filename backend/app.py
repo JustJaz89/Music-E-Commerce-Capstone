@@ -58,4 +58,6 @@ def create_routes():
     # TODO: Create files for your Resources in resources folder, add them here
     api.add_resource(TrackListResource, '/api/tracks')
     api.add_resource(TrackResource, '/api/tracks/<int:track_id>')
+    # api.add_resource(GetTrackInformationResource, '/api/<string:track_id>')
+    
     return api

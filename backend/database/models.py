@@ -36,7 +36,7 @@ class Car(db.Model):
 class Track(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
-    time = db.Column(db.Float)
+    time = db.Column(db.Numeric(4,2), nullable=False)
     bpm = db.Column(db.Integer)
     genre = db.Column(db.String(255), nullable=False)
     release_date = db.Column(db.Date)
