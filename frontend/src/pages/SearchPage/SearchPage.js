@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import SearchBar from './SearchBar';
-
+import SearchBar from '../../components/SearchBar/SearchBar';
+import ResultsList from './ResultsList';
 import axios from "axios"
+
 
 const SearchPage = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -32,7 +33,6 @@ const SearchPage = () => {
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 handleSubmit={handleSubmit}
-
             />
             <ResultsList searchResults={searchResults} />
         </div>

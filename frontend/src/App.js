@@ -1,4 +1,6 @@
 // General Imports
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -14,6 +16,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import MusicTable from "./components/MusicTable/MusicTable";
+import SearchBar from './components/SearchBar/SearchBar';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -41,7 +44,7 @@ function App() {
   // const filterTracks = (event) => {
   //   let filterValue = event.target.value;
   //   if (filterValue === "") {
-  //     getAllSongs();
+  //     getAllTracks();
   //   } else {
   //    let filteredTracks = tracks.filter(
   //       (x) =>
@@ -49,11 +52,32 @@ function App() {
   //         x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
   //         x.genre.toLowerCase().includes(filterValue.toLowerCase())
   //     );
-  //     setSongs(filteredTracks);
+  //     setTracks(filteredTracks);
   //  }
   // };
 
   return (
+    
+    // <div>
+    //   <div className="container-fluid">
+    //   <div className="row">
+    //     <h3 style={{margin: "1em"}}>Music
+    //     <medium className="text-muted">Library</medium></h3>
+    //     <div className="col-sm">
+    //       <div className="border-box">
+    //         <MusicTable parentTracks={tracks}/>
+    //       </div>
+    //       <div className="border-box">
+    //         <AddNewTrack addNewTrackProperty={addNewTrack} />
+    //       </div>
+    //     </div>
+    //     <div className="col-">
+    //       <div className="border-box">
+    //         <SearchBar filterTracks={filterTracks}/>
+    //       </div>
+    //     </div>
+    //   </div>     
+    // </div>
     <div>
       <Navbar />
       <Routes>

@@ -13,3 +13,17 @@ const SearchBar = ({searchTerm = "", setSearchTerm, handleSubmit}) => {
 };
 
 export default SearchBar;
+
+// const SearchBar = (props) => {
+//     return (
+//         <div>
+//         <input
+//             type="text"
+//             placeholder="Search"
+//             onChange={(event) => props.filterTracks(event)}
+//         />
+//         </div>
+//     );
+// }
+ 
+// export default SearchBar;
