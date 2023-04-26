@@ -40,6 +40,6 @@ class Track(db.Model):
     bpm = db.Column(db.Integer)
     genre = db.Column(db.String(255), nullable=False)
     release_date = db.Column(db.Date)
-    price = db.Column(db.Float)
+    price = db.Column(db.Numeric(4,2), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = db.relationship("User")
