@@ -1,6 +1,7 @@
 // General Imports
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -15,7 +16,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import MusicTable from "./components/MusicTable/MusicTable";
+import MusicTable from './components/MusicTable/MusicTable';
 import SearchBar from './components/SearchBar/SearchBar';
 
 // Util Imports
@@ -80,6 +81,7 @@ function App() {
     // </div>
     <div>
       <Navbar />
+      {/* <MusicTable /> */}
       <Routes>
         <Route
           path="/"
