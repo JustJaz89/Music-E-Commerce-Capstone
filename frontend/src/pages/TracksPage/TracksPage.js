@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const MusicTable = (props) => {
+const TracksTable = (props) => {
 
     return (
         <div>
@@ -38,7 +38,7 @@ const MusicTable = (props) => {
     );
 };
 
-function MusicSearch() {
+function TrackSearch() {
     const [query, setQuery] = useState("");
     const [filteredData, setFilteredData] = useState([]);
   
@@ -61,9 +61,9 @@ function MusicSearch() {
         <div>
           <input type="text" placeholder="Search" onChange={handleSearch} />
           {filteredData.length > 0 ? (
-            <MusicTable data={filteredData} />
+            <TracksTable data={filteredData} />
           ) : (
-            <MusicTable data={MusicSearch} />
+            <TracksTable data={TrackSearch} />
           )}
         </div>
       );
@@ -81,4 +81,4 @@ const data = [
     },
 ]
 
-export default MusicTable;
+export default TracksTable;

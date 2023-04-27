@@ -1,7 +1,7 @@
 // General Imports
-import React from 'react';
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+// import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -24,38 +24,38 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
 
-  // const [tracks, setTracks] = useState([])
+  const [tracks, setTracks] = useState([])
 
-  // useEffect(() => {
-  //   getAllTracks();
-  // }, [])
+  useEffect(() => {
+    getAllTracks();
+  }, [])
 
-  // async function getAllTracks() {
-  //   let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
-  //   setTracks(response.data)
-  // }
+  async function getAllTracks() {
+    let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
+    setTracks(response.data)
+  }
 
-  // async function addNewTrack(newTrack) {
-  //   let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
-  //   if(response.status === 201){
-  //     await getAllTracks();
-  //   }
-  // }
+  async function addNewTrack(newTrack) {
+    let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
+    if(response.status === 201){
+      await getAllTracks();
+    }
+  }
 
-  // const filterTracks = (event) => {
-  //   let filterValue = event.target.value;
-  //   if (filterValue === "") {
-  //     getAllTracks();
-  //   } else {
-  //    let filteredTracks = tracks.filter(
-  //       (x) =>
-  //         x.title.toLowerCase().includes(filterValue.toLowerCase()) ||
-  //         x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
-  //         x.genre.toLowerCase().includes(filterValue.toLowerCase())
-  //     );
-  //     setTracks(filteredTracks);
-  //  }
-  // };
+  const filterTracks = (event) => {
+    let filterValue = event.target.value;
+    if (filterValue === "") {
+      getAllTracks();
+    } else {
+     let filteredTracks = tracks.filter(
+        (x) =>
+          x.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+          x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
+          x.genre.toLowerCase().includes(filterValue.toLowerCase())
+      );
+      setTracks(filteredTracks);
+   }
+  };
 
   return (
     
@@ -80,8 +80,7 @@ function App() {
     //   </div>     
     // </div>
     <div>
-      <Navbar />
-      {/* <MusicTable /> */}
+      <Navbar />    
       <Routes>
         <Route
           path="/"
@@ -93,10 +92,17 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/tracks" element={<TracksPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/tracks" element={<TracksPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      {/* <main>
+        <MusicTable parentTracks={tracks}/>
+        <SearchBar filterTracks={filterTracks}/>
+      </main> */}
+        {/* <MusicTable /> */}
+        <SearchBar filterTracks={filterTracks}/>
+        <ContactPage />
       <Footer />
     </div>
   );

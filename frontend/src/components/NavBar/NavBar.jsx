@@ -21,6 +21,9 @@ const Navbar = () => {
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
           )}
+            <button onClick={() => navigate("/tracks")}>Tracks</button>
+            <button onClick={() => navigate("/search")}>Search</button>
+            <button onClick={() => navigate("/contact")}>Contact</button>
         </li>
       </ul>
     </div>
