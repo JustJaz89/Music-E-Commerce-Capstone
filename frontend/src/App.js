@@ -11,13 +11,14 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import TracksPage from "./pages/TracksPage/TracksPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
-import ContactPage from "./pages/ContactPage/ContactPage";
+// import ContactPage from "./pages/ContactPage/ContactPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import MusicTable from './components/MusicTable/MusicTable';
 import SearchBar from './components/SearchBar/SearchBar';
+import ContactForm from './components/ContactForm/ContactForm';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -94,7 +95,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/tracks" element={<TracksPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        {/* <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
       {/* <main>
         <MusicTable parentTracks={tracks}/>
@@ -102,7 +103,8 @@ function App() {
       </main> */}
         {/* <MusicTable /> */}
         <SearchBar filterTracks={filterTracks}/>
-        <ContactPage />
+        {/* <ContactPage /> */}
+        <ContactForm />
       <Footer />
     </div>
   );
