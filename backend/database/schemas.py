@@ -1,6 +1,6 @@
 from flask_marshmallow import Marshmallow
 from marshmallow import post_load, fields
-from database.models import User, Car, Track
+from database.models import User, Car, Track, Contact
 
 ma = Marshmallow()
 
@@ -79,3 +79,18 @@ class TrackSchema(ma.Schema):
     
 track_schema = TrackSchema()
 tracks_schema = TrackSchema(many=True)
+
+class ContactSchema(ma.Schema):
+    id = fields.Integer(primary_key=True)
+    name = fields.String(required=True)
+    email = fields.String(required=True)
+    message = fields.String(required=True)
+    class Meta:
+        fields = ("id", "name", "email", "message")
+
+    @post_load
+    def create_contact(self, data, **kwargs):
+        return Contact(**data)
+    
+contact_schema = ContactSchema()
+contacts_schema = ContactSchema(many=True)
