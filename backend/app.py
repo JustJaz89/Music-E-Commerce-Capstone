@@ -6,7 +6,7 @@ from flask_restful import Api
 from flask_migrate import Migrate
 from database.models import db
 from database.schemas import ma
-from resources.auth import LoginResource, RegisterResource, TrackListResource, TrackResource
+from resources.auth import LoginResource, RegisterResource, TrackListResource, TrackResource, ContactResource
 from resources.cars import AllCarResource, UserCarResource
 from dotenv import load_dotenv
 from os import environ
@@ -59,5 +59,6 @@ def create_routes():
     api.add_resource(TrackListResource, '/api/tracks')
     api.add_resource(TrackResource, '/api/tracks/<int:track_id>')
     # api.add_resource(GetTrackInformationResource, '/api/<string:track_id>')
+    api.add_resource(ContactResource, '/api/contact')
     
     return api
