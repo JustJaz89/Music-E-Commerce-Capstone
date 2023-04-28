@@ -16,6 +16,7 @@ const SearchBar = ({searchTerm = "", setSearchTerm, handleSubmit}) => {
 
 export default SearchBar;
 
+// SearchBar from Music Library
 // const SearchBar = (props) => {
 //     return (
 //         <div>

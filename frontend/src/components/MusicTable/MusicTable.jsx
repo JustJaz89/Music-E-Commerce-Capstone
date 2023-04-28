@@ -17,37 +17,41 @@
 
 // export default MusicTable;
 
-import React, { useState } from 'react';
+import React from 'react';
+// import SearchBar from '../SearchBar/SearchBar';
 
-
-const MusicTable = (props) => {
+const TracksTable = (props) => {
 
     return (
         <div className="container">
-            {/* <h1>Music Library</h1> */}
-            <table className="table table-striped table-dark">
+           {/* <div className="border-box">
+            <SearchBar filterSongs={filterSongs}/>
+          </div> */}
+            {/* <table className="table table-striped table-dark"> */}
+            <table>
                 <thead>
                     <tr>
+                        {/* <th>Image_URL</th> */}
                         <th>Id</th>
                         <th>Title</th>
-                        <th>Artist</th>
-                        <th>Album</th>
+                        <th>Time</th>
+                        <th>BPM</th>
                         <th>Genre</th>
                         <th>Release Date</th>
-                        <th>Running Time</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                {props.parentSongs.map((song, index) => {
+                {props.parentTracks.map((track, index) => {
                     return (
-                    <tr key={song.id}>
+                    <tr key={track.id}>
                         <td>{index + 1}</td>
-                        <td>{song.title}</td>
-                        <td>{song.artist}</td>
-                        <td>{song.album}</td>
-                        <td>{song.genre}</td>
-                        <td>{song.release_date}</td>
-                        <td>{song.running_time}</td>
+                        <td>{track.title}</td>
+                        <td>{track.time}</td>
+                        <td>{track.bpm}</td>
+                        <td>{track.genre}</td>
+                        <td>{track.release_date}</td>
+                        <td>{track.price}</td>
                     </tr>
                     );
                 })}
@@ -57,46 +61,49 @@ const MusicTable = (props) => {
     );
 };
 
-function MusicSearch() {
-    const [query, setQuery] = useState("");
-    const [filteredData, setFilteredData] = useState([]);
-  
-    function handleSearch(event) {
-      const newQuery = event.target.value;
-      setQuery(newQuery);
-      const newData = query.filter(
-        (item) =>
-          item.title.includes(newQuery) ||
-          item.time.includes(newQuery) ||
-          item.bpm.includes(newQuery) ||
-          item.genre.includes(newQuery) ||
-          item.releaseDate.includes(newQuery)
-      );
-      setFilteredData(newData);
-    }
-  
-    return (
-        <div>
-          <input type="text" placeholder="Search" onChange={handleSearch} />
-          {filteredData.length > 0 ? (
-            <MusicTable data={filteredData} />
-          ) : (
-            <MusicTable data={MusicSearch} />
-          )}
-        </div>
-      );
-    }
+export default TracksTable;
 
-const data = [
-    {
-        id: 1,
-        title: "",
-        time: "",
-        bpm: "",
-        genre: "",
-        releaseDate: "",
-        price: "",
-    },
-]
+// function TrackSearch() {
+//     const [query, setQuery] = useState("");
+//     const [filteredData, setFilteredData] = useState([]);
+  
+//     function handleSearch(event) {
+//       const newQuery = event.target.value;
+//       setQuery(newQuery);
+//       const newData = query.filter(
+//         (item) =>
+//           item.title.includes(newQuery) ||
+//           item.time.includes(newQuery) ||
+//           item.bpm.includes(newQuery) ||
+//           item.genre.includes(newQuery) ||
+//           item.releaseDate.includes(newQuery) ||
+//           item.price.includes(newQuery)
+//       );
+//       setFilteredData(newData);
+//     }
+  
+//     return (
+//         <div>
+//           <input type="text" placeholder="Search" onChange={handleSearch} />
+//           {filteredData.length > 0 ? (
+//             <TracksTable data={filteredData} />
+//           ) : (
+//             <TracksTable data={TrackSearch} />
+//           )}
+//         </div>
+//       );
+//     }
 
-export default MusicTable;
+// const data = [
+//     {
+//         id: 1,
+//         title: "",
+//         time: "",
+//         bpm: "",
+//         genre: "",
+//         releaseDate: "",
+//         price: "",
+//     },
+// ]
+
+// export default TracksTable;

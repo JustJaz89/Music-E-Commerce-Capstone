@@ -38,47 +38,4 @@ const TracksTable = (props) => {
     );
 };
 
-function TrackSearch() {
-    const [query, setQuery] = useState("");
-    const [filteredData, setFilteredData] = useState([]);
-  
-    function handleSearch(event) {
-      const newQuery = event.target.value;
-      setQuery(newQuery);
-      const newData = query.filter(
-        (item) =>
-          item.title.includes(newQuery) ||
-          item.time.includes(newQuery) ||
-          item.bpm.includes(newQuery) ||
-          item.genre.includes(newQuery) ||
-          item.releaseDate.includes(newQuery) ||
-          item.price.includes(newQuery)
-      );
-      setFilteredData(newData);
-    }
-  
-    return (
-        <div>
-          <input type="text" placeholder="Search" onChange={handleSearch} />
-          {filteredData.length > 0 ? (
-            <TracksTable data={filteredData} />
-          ) : (
-            <TracksTable data={TrackSearch} />
-          )}
-        </div>
-      );
-    }
-
-const data = [
-    {
-        id: 1,
-        title: "",
-        time: "",
-        bpm: "",
-        genre: "",
-        releaseDate: "",
-        price: "",
-    },
-]
-
 export default TracksTable;

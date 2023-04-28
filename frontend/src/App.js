@@ -98,8 +98,8 @@ function App() {
         {/* <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
       <main>
-        {/* <MusicTable parentTracks={tracks}/> */}
         <SearchBar filterTracks={filterTracks}/>
+        <MusicTable parentTracks={tracks}/>
       </main>
         {/* <MusicTable /> */}
         {/* <SearchBar filterTracks={filterTracks}/> */}
