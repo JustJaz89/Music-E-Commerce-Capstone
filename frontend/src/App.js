@@ -16,7 +16,7 @@ import SearchPage from "./pages/SearchPage/SearchPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import MusicTable from './components/MusicTable/MusicTable';
+import TracksTable from './pages/TracksPage/TracksPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import ContactForm from './components/ContactForm/ContactForm';
 
@@ -99,13 +99,10 @@ function App() {
       </Routes>
       <main>
         <SearchBar filterTracks={filterTracks}/>
-        <MusicTable parentTracks={tracks}/>
-      </main>
-        {/* <MusicTable /> */}
-        {/* <SearchBar filterTracks={filterTracks}/> */}
-        {/* <MusicTable /> */}
+        <TracksTable parentTracks={tracks}/>
         {/* <ContactPage /> */}
         <ContactForm />
+      </main>
       <Footer />
     </div>
   );
