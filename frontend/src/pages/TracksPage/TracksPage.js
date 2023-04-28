@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const TracksTable = (props) => {
 
     return (
-        <div>
+        <div className="container">
             {/* <table className="table table-striped table-dark"> */}
             <table>
                 <thead>

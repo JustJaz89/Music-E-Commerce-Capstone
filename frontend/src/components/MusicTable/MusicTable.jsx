@@ -23,7 +23,7 @@ import React, { useState } from 'react';
 const MusicTable = (props) => {
 
     return (
-        <div>
+        <div className="container">
             {/* <h1>Music Library</h1> */}
             <table className="table table-striped table-dark">
                 <thead>

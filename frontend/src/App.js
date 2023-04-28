@@ -97,12 +97,13 @@ function App() {
         <Route path="/tracks" element={<TracksPage />} />
         {/* <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
-      {/* <main>
-        <MusicTable parentTracks={tracks}/>
+      <main>
+        {/* <MusicTable parentTracks={tracks}/> */}
         <SearchBar filterTracks={filterTracks}/>
-      </main> */}
+      </main>
         {/* <MusicTable /> */}
-        <SearchBar filterTracks={filterTracks}/>
+        {/* <SearchBar filterTracks={filterTracks}/> */}
+        {/* <MusicTable /> */}
         {/* <ContactPage /> */}
         <ContactForm />
       <Footer />
