@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
-// import TracksTable from '../../components/TracksTable/TracksTable';
+import React from 'react';
+// import SearchBar from '../SearchBar/SearchBar';
 
 const TracksTable = (props) => {
 
     return (
         <div className="container">
+           {/* <div className="border-box">
+            <SearchBar filterSongs={filterSongs}/>
+          </div> */}
             {/* <table className="table table-striped table-dark"> */}
             <table>
                 <thead>
                     <tr>
                         {/* <th>Image_URL</th> */}
+                        <th>Id</th>
                         <th>Title</th>
                         <th>Time</th>
                         <th>BPM</th>

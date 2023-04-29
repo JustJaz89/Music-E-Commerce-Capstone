@@ -27,8 +27,7 @@ const TracksTable = (props) => {
            {/* <div className="border-box">
             <SearchBar filterSongs={filterSongs}/>
           </div> */}
-            {/* <table className="table table-striped table-dark"> */}
-            <table>
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         {/* <th>Image_URL</th> */}

@@ -19,6 +19,19 @@ const ContactForm = () => {
                 <button type="submit">SUBMIT</button>
             </form>
         </div>
+        // <div layout="row" layout-align="center center" class="layout-align-center-center layout-row">
+        //     <section class="max-layout-width">
+        //         <div layout-gt-sm="row" class="layout-gt-sm-row">
+        //             <span flex-gt-sm="30" class="flex-gt-sm-30">
+        //                 <h3 class="ng-binding">Contact</h3>
+        //             </span>
+        //             <span flex-gt-sm="5" class="flex-gt-sm-5"></span>
+        //             <span>
+
+        //             </span>
+        //         </div>
+        //     </section>
+        // </div>
     )
 };
 

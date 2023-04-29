@@ -59,27 +59,6 @@ function App() {
   };
 
   return (
-    
-    // <div>
-    //   <div className="container-fluid">
-    //   <div className="row">
-    //     <h3 style={{margin: "1em"}}>Music
-    //     <medium className="text-muted">Library</medium></h3>
-    //     <div className="col-sm">
-    //       <div className="border-box">
-    //         <MusicTable parentTracks={tracks}/>
-    //       </div>
-    //       <div className="border-box">
-    //         <AddNewTrack addNewTrackProperty={addNewTrack} />
-    //       </div>
-    //     </div>
-    //     <div className="col-">
-    //       <div className="border-box">
-    //         <SearchBar filterTracks={filterTracks}/>
-    //       </div>
-    //     </div>
-    //   </div>     
-    // </div>
     <div>
       <Navbar />    
       <Routes>
@@ -98,10 +77,15 @@ function App() {
         {/* <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
       <main>
+      <div className="border-box">
         <SearchBar filterTracks={filterTracks}/>
+      </div>
+      <div>
         <TracksTable parentTracks={tracks}/>
-        {/* <ContactPage /> */}
+      </div>
+      <div>
         <ContactForm />
+      </div>
       </main>
       <Footer />
     </div>
