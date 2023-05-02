@@ -13,7 +13,7 @@ const SearchPage = () => {
         try {
             let lowerCaseSearchTerm = searchTerm.toLowerCase();
             let response = await axios.get(
-                `http://127.0.0.1:5000/api/tracks${lowerCaseSearchTerm}`
+                `http://127.0.0.1:5000/api/login${lowerCaseSearchTerm}`
             );
             console.log(response.data)
             setSearchResults(response.data.items);
@@ -28,7 +28,7 @@ const SearchPage = () => {
 
     return (
         <div className="container search">
-            <h1>Search</h1>
+            <h1>Search Page</h1>
             <SearchBar
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
