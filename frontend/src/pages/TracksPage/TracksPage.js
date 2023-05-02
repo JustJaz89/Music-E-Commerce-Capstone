@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
 // import SearchBar from '../SearchBar/SearchBar';
 
 const TracksTable = (props) => {
@@ -38,6 +39,8 @@ const TracksTable = (props) => {
                 })}
                 </tbody>
             </table>
+            <SearchBar />    
+            <TracksTable />
         </div>
     );
 };

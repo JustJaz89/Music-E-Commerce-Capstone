@@ -18,6 +18,13 @@ function ContactForm() {
     };
 
     return (
+        <div className="container">
+            <h1>Contact Page</h1>
+            <ContactForm
+                name={name}
+                setName={setName}
+                handleSubmit={handleSubmit}
+            />
         <form onSubmit={handleSubmit}>
             <label>
                 Name:
@@ -33,6 +40,7 @@ function ContactForm() {
             </label>
             <button type="submit">Submit</button>
         </form>
+        </div>
     );
 }
 

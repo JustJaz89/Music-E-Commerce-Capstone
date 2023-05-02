@@ -5,7 +5,7 @@ const ResultsList = ({searchResults}) => {
     console.log(searchResults);
     return (
         <div className="resultsList">
-            <h2>This is the results list!</h2>
+            <h2>Results List</h2>
             {searchResults.map((tracks, index) => (
                 <Link key={index} to={`/details/${tracks.id}`}>
                     <div>

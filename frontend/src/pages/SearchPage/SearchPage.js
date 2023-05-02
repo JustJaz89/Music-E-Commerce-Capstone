@@ -35,6 +35,9 @@ const SearchPage = () => {
                 handleSubmit={handleSubmit}
             />
             <ResultsList searchResults={searchResults} />
+            {/* <div className="border-box">
+                <SearchBar />
+            </div> */}
         </div>
     );
 };

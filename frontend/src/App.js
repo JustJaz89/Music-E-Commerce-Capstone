@@ -76,7 +76,7 @@ function App() {
         <Route path="/tracks" element={<TracksPage />} />
         {/* <Route path="/contact" element={<ContactPage />} /> */}
       </Routes>
-      <main>
+      {/* <main>
       <div className="border-box">
         <SearchBar filterTracks={filterTracks}/>
       </div>
@@ -86,7 +86,7 @@ function App() {
       <div>
         <ContactForm />
       </div>
-      </main>
+      </main> */}
       <Footer />
     </div>
   );
