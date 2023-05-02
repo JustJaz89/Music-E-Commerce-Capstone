@@ -11,7 +11,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import TracksPage from "./pages/TracksPage/TracksPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
-// import ContactPage from "./pages/ContactPage/ContactPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -74,9 +74,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/tracks" element={<TracksPage />} />
-        {/* <Route path="/contact" element={<ContactPage />} /> */}
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      {/* <main>
+      <main>
       <div className="border-box">
         <SearchBar filterTracks={filterTracks}/>
       </div>
@@ -86,7 +86,7 @@ function App() {
       <div>
         <ContactForm />
       </div>
-      </main> */}
+      </main>
       <Footer />
     </div>
   );
