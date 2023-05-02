@@ -1,6 +1,6 @@
 from flask_marshmallow import Marshmallow
 from marshmallow import post_load, fields
-from database.models import User, Car, Track, Contact
+from database.models import User, Car, Track, Contact, CartItem
 
 ma = Marshmallow()
 
@@ -94,3 +94,17 @@ class ContactSchema(ma.Schema):
     
 contact_schema = ContactSchema()
 contacts_schema = ContactSchema(many=True)
+
+class CartItemSchema(ma.Schema):
+    id = fields.Integer(primary_key=True)
+    track_id = fields.Integer()
+    quantity = fields.Integer()
+    class Meta:
+        fields = ("id", "track_id", "quantity")
+
+    @post_load
+    def create_cart_item(self, data, **kwargs):
+        return CartItem(**data)
+    
+cart_item_schema = CartItemSchema()
+cart_items_schema = CartItemSchema(many=True)

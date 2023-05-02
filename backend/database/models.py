@@ -49,3 +49,9 @@ class Contact(db.Model):
     name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), nullable=False)
     message = db.Column(db.String(255), nullable=False)
+
+class CartItem(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    track_id = db.Column(db.Integer)
+    quantity = db.Column(db.Integer)
+    user_id = db.Column(db.Integer, db.ForeignKey("user_id"))

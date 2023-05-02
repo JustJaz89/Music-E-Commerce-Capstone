@@ -2,7 +2,7 @@ from flask import request
 from flask_jwt_extended import create_access_token, verify_jwt_in_request
 from flask_restful import Resource
 from database.models import db, User, Track
-from database.schemas import register_schema, user_schema, track_schema, tracks_schema, contact_schema
+from database.schemas import register_schema, user_schema, track_schema, tracks_schema, contact_schema, cart_item_schema
 from marshmallow import ValidationError
 import datetime
 
@@ -117,5 +117,16 @@ class ContactResource(Resource):
             db.session.add(new_contact)
             db.session.commit()
             return contact_schema.dump(new_contact), 201
+        except ValidationError as err:
+            return err.messages, 400
+        
+class CartItemResource(Resource):  
+    def post(self):
+        form_data = request.get_json()
+        try:
+            new_cart_item = cart_item_schema.load(form_data)
+            db.session.add(new_cart_item)
+            db.session.commit()
+            return cart_item_schema.dump(new_cart_item), 201
         except ValidationError as err:
             return err.messages, 400
