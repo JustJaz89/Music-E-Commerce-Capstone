@@ -4,11 +4,18 @@ function ContactForm() {
     const [name, setName] = useState(" ");
     const [email, setEmail] = useState(" ");
     const [message, setMessage] = useState(" ");
+    // const [success, setSuccess] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
-
+        // fetch('/submit-contact-form', {
+        //     method: 'POST',
+        //     body: JSON.stringify({name, email, message}),
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        // });
+    };
 
     return (
         <form onSubmit={handleSubmit}>

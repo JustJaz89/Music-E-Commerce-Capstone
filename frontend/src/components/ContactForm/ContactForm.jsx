@@ -15,7 +15,7 @@ const ContactForm = () => {
                 <label htmlFor="message" placeholder="Message">
                     MESSAGE
                 </label>
-                <textarea name="message" rows="5" cols="50"></textarea>
+                <textarea name="message" rows="4" cols="50"></textarea>
                 <button type="submit">SUBMIT</button>
             </form>
         </div>

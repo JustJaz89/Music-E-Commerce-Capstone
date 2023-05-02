@@ -109,6 +109,9 @@ class TrackResource(Resource):
 class ContactResource(Resource):  
     def post(self):
         form_data = request.get_json()
+        # name = form_data["name"]
+        # email = form_data["email"]
+        # message = form_data["message"]
         try:
             new_contact = contact_schema.load(form_data)
             db.session.add(new_contact)
