@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer";
 import TracksTable from './pages/TracksPage/TracksPage';
 import SearchBar from './components/SearchBar/SearchBar';
 import ContactForm from './components/ContactForm/ContactForm';
+import { MusicPlayer } from './components/PlayingMusic/PlayingMusic';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <Navbar />    
+      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -79,6 +80,9 @@ function App() {
       <main>
       <div className="border-box">
         <SearchBar filterTracks={filterTracks}/>
+      </div>
+      <div>
+          {/* <MusicPlayer /> */}
       </div>
       <div>
         <TracksTable parentTracks={tracks}/>
