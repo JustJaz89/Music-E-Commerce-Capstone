@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import TracksTable from '../../components/TracksTable/TracksTable';
 import { MusicPlayer } from '../../components/PlayingMusic/PlayingMusic';
 
-const TracksTable = (props) => {
+const TracksPage = (props) => {
 
     const [tracks, setTracks] = useState([])
 
@@ -69,10 +70,11 @@ const TracksTable = (props) => {
                 })}
                 </tbody>
             </table>
+            <TracksTable />
             <SearchBar filterTracks={filterTracks} />
             <MusicPlayer />
             <getAllTracks />
-            <TracksTable
+            <TracksPage
                 parentTracks={tracks}
                 tracks={tracks}
                 setTracks={setTracks}/>
@@ -81,4 +83,4 @@ const TracksTable = (props) => {
     );
 };
 
-export default TracksTable;
+export default TracksPage;
