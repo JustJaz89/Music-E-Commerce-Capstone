@@ -8,13 +8,13 @@ function ContactForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // fetch('/submit-contact-form', {
-        //     method: 'POST',
-        //     body: JSON.stringify({name, email, message}),
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // });
+        fetch('/submit-contact-form', {
+            method: 'POST',
+            body: JSON.stringify({name, email, message}),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
     };
 
     return (
@@ -26,6 +26,7 @@ function ContactForm() {
         //         handleSubmit={handleSubmit}
         //     />
         <form onSubmit={handleSubmit}>
+            <h1>Contact Us</h1>
             <label>
                 Name:
                 <input type="text" value={name} onChange={(event) => setName(event.target.value)} />

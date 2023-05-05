@@ -26,38 +26,38 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
 
-  const [tracks, setTracks] = useState([])
+  // const [tracks, setTracks] = useState([])
 
-  useEffect(() => {
-    getAllTracks();
-  }, [])
+  // useEffect(() => {
+  //   getAllTracks();
+  // }, [])
 
-  async function getAllTracks() {
-    let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
-    setTracks(response.data)
-  }
+  // async function getAllTracks() {
+  //   let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
+  //   setTracks(response.data)
+  // }
 
-  async function addNewTrack(newTrack) {
-    let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
-    if(response.status === 201){
-      await getAllTracks();
-    }
-  }
+  // async function addNewTrack(newTrack) {
+  //   let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
+  //   if(response.status === 201){
+  //     await getAllTracks();
+  //   }
+  // }
 
-  const filterTracks = (event) => {
-    let filterValue = event.target.value;
-    if (filterValue === "") {
-      getAllTracks();
-    } else {
-     let filteredTracks = tracks.filter(
-        (x) =>
-          x.title.toLowerCase().includes(filterValue.toLowerCase()) ||
-          x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
-          x.genre.toLowerCase().includes(filterValue.toLowerCase())
-      );
-      setTracks(filteredTracks);
-   }
-  };
+  // const filterTracks = (event) => {
+  //   let filterValue = event.target.value;
+  //   if (filterValue === "") {
+  //     getAllTracks();
+  //   } else {
+  //    let filteredTracks = tracks.filter(
+  //       (x) =>
+  //         x.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+  //         x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
+  //         x.genre.toLowerCase().includes(filterValue.toLowerCase())
+  //     );
+  //     setTracks(filteredTracks);
+  //  }
+  // };
 
   return (
     <div>
@@ -78,18 +78,18 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <main>
-      <div className="border-box">
+      {/* <div className="border-box">
         <SearchBar filterTracks={filterTracks}/>
-      </div>
+      </div> */}
       <div>
           {/* <MusicPlayer /> */}
       </div>
-      <div>
+      {/* <div>
         <TracksTable parentTracks={tracks}/>
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         <ContactForm />
-      </div>
+      </div> */}
       </main>
       <Footer />
     </div>

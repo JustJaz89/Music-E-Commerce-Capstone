@@ -34,10 +34,7 @@ const SearchPage = () => {
                 setSearchTerm={setSearchTerm}
                 handleSubmit={handleSubmit}
             />
-            <ResultsList searchResults={searchResults} />
-            {/* <div className="border-box">
-                <SearchBar />
-            </div> */}
+            {/* <ResultsList searchResults={searchResults} /> */}
         </div>
     );
 };
