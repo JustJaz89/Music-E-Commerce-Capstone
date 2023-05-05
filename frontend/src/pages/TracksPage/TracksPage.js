@@ -1,15 +1,46 @@
-import React from 'react';
-// import SearchBar from '../SearchBar/SearchBar';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import { MusicPlayer } from '../../components/PlayingMusic/PlayingMusic';
 
 const TracksTable = (props) => {
 
+    const [tracks, setTracks] = useState([])
+
+    useEffect(() => {
+        getAllTracks();
+    }, [])
+
+    async function getAllTracks() {
+        let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
+        setTracks(response.data)
+    }
+
+    async function addNewTrack(newTrack) {
+        let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
+        if(response.status === 201){
+        await getAllTracks();
+        }
+    }
+
+    const filterTracks = (event) => {
+        let filterValue = event.target.value;
+        if (filterValue === "") {
+        getAllTracks();
+        } else {
+        let filteredTracks = tracks.filter(
+            (x) =>
+            x.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+            x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
+            x.genre.toLowerCase().includes(filterValue.toLowerCase())
+        );
+        setTracks(filteredTracks);
+        }
+    };
+
     return (
         <div className="container">
-           {/* <div className="border-box">
-            <SearchBar filterSongs={filterSongs}/>
-          </div> */}
-            {/* <table className="table table-striped table-dark"> */}
-            <table>
+            <table className="table table-striped table-dark">
                 <thead>
                     <tr>
                         {/* <th>Image_URL</th> */}
@@ -38,6 +69,14 @@ const TracksTable = (props) => {
                 })}
                 </tbody>
             </table>
+            <SearchBar filterTracks={filterTracks} />
+            <MusicPlayer />
+            <getAllTracks />
+            <TracksTable
+                parentTracks={tracks}
+                tracks={tracks}
+                setTracks={setTracks}/>
+            <addNewTrack />
         </div>
     );
 };

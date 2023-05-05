@@ -18,9 +18,43 @@
 // export default MusicTable;
 
 import React from 'react';
+import { MusicPlayer } from '../PlayingMusic/PlayingMusic';
 // import SearchBar from '../SearchBar/SearchBar';
 
 const TracksTable = (props) => {
+
+    const [tracks, setTracks] = useState([])
+
+    useEffect(() => {
+        getAllTracks();
+    }, [])
+
+    async function getAllTracks() {
+        let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
+        setTracks(response.data)
+    }
+
+    async function addNewTrack(newTrack) {
+        let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
+        if(response.status === 201){
+        await getAllTracks();
+        }
+    }
+
+    const filterTracks = (event) => {
+        let filterValue = event.target.value;
+        if (filterValue === "") {
+        getAllTracks();
+        } else {
+        let filteredTracks = tracks.filter(
+            (x) =>
+            x.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+            x.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
+            x.genre.toLowerCase().includes(filterValue.toLowerCase())
+        );
+        setTracks(filteredTracks);
+        }
+    };
 
     return (
         <div className="container">
@@ -53,6 +87,9 @@ const TracksTable = (props) => {
                 })}
                 </tbody>
             </table>
+            <SearchBar filterTracks={filterTracks} />
+            <MusicPlayer />
+            <TracksTable parentTracks={tracks}/>
         </div>
     );
 };
@@ -89,17 +126,5 @@ export default TracksTable;
 //         </div>
 //       );
 //     }
-
-// const data = [
-//     {
-//         id: 1,
-//         title: "",
-//         time: "",
-//         bpm: "",
-//         genre: "",
-//         releaseDate: "",
-//         price: "",
-//     },
-// ]
 
 // export default TracksTable;
