@@ -57,6 +57,21 @@ button:hover {
   font-size: 17px;
 }
 
-/* .homeImage {
+/* .home img {
   background-image: url("beatstars-animation.mp4");
+  float: center;
+  width: 400px;
 } */
+
+.border-box {
+  border: 5px;
+  border-style: solid;
+  border-color: black;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 25px;
+}
+
+.body {
+  background-color: rgb(123, 255, 255);
+}
