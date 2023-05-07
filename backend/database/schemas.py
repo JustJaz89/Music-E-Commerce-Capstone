@@ -64,6 +64,7 @@ cars_schema = CarSchema(many=True)
 
 class TrackSchema(ma.Schema):
     id = fields.Integer(primary_key=True)
+    title_img = fields.String(required=True)
     title = fields.String(required=True)
     time = fields.Float()
     bpm = fields.Integer()
