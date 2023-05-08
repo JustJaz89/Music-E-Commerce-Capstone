@@ -25,8 +25,8 @@ const Navbar = () => {
             <button onClick={() => navigate("/search")}>Search</button>
             <button onClick={() => navigate("/contact")}>Contact</button>
             {/* <button onClick={addToCart}>Add to cart</button> */}
-            <input type="text" name="search" />
-            <a href="#cart">CART (0)</a>
+            {/* <input type="text" name="search" />
+            <a href="#cart">CART (0)</a> */}
         </li>
       </ul>
     </div>
