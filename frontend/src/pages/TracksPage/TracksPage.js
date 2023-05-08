@@ -54,7 +54,7 @@ const TracksPage = (props) => {
                         <th>Price</th>
                     </tr>
                 </thead>
-                <tbody>
+                <body>
                 {props.parentTracks.map((track, index) => {
                     return (
                     <tr key={track.id}>
@@ -68,7 +68,7 @@ const TracksPage = (props) => {
                     </tr>
                     );
                 })}
-                </tbody>
+                </body>
             </table>
             <TracksTable />
             <SearchBar filterTracks={filterTracks} />
