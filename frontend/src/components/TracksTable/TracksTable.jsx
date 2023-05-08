@@ -1,29 +1,26 @@
-// import React from 'react';
-// import "./MusicTable.css";
-
-// import mental from "../../images/Mental.jpg"
-
-// const MusicTable = () => {
-//     return (
-//         <article>
-//             <img src={mental} alt="Mental" />
-//             <div>
-//                 <h3>Mental</h3>
-//                 <p>$49.95</p>
-//             </div>
-//         </article>
-//     );
-// };
-
-// export default MusicTable;
-
-import React from 'react';
+import React, { useState } from 'react';
+// import TracksPage from '../../pages/TracksPage/TracksPage';
+import SearchBar from '../SearchBar/SearchBar';
 import TracksPage from '../../pages/TracksPage/TracksPage';
 
 const TracksTable = (props) => {
-    console.log(TracksPage);
+    // console.log(TracksPage);
+
+    const [search, setSearch] = useState("");
+
+    let filteredTracks = props.parentTracks.filter(
+        (x) =>
+            x.title.toLowerCase().includes(search.toLowerCase()) ||
+            x.bpm.toLowerCase().includes(search.toLowerCase()) ||
+            x.genre.toLowerCase().includes(search.toLowerCase())
+    );
+    
     return (
         <div className="container">
+            <div>
+                <SearchBar search={search} setSearch={setSearch}/>
+                <TracksPage />
+            </div>
             <table className="table table-striped table-dark">
                 <thead>
                     <tr>
@@ -38,7 +35,7 @@ const TracksTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                {props.parentTracks.map((track, index) => {
+                {filteredTracks.map((track, index) => {
                     return (
                     <tr key={track.id}>
                         <td>{index + 1}</td>
@@ -53,8 +50,8 @@ const TracksTable = (props) => {
                 })}
                 </tbody>
             </table>
-            <TracksPage />
-            <TracksTable />
+            {/* <TracksPage />
+            <TracksTable /> */}
             {/* <SearchBar filterTracks={filterTracks} />
             <MusicPlayer />
             <getAllTracks />
