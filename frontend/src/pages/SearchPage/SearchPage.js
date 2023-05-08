@@ -13,7 +13,7 @@ const SearchPage = () => {
         try {
             let lowerCaseSearchTerm = searchTerm.toLowerCase();
             let response = await axios.get(
-                `http://127.0.0.1:5000/api/login${lowerCaseSearchTerm}`
+                `http://127.0.0.1:5000/api/${lowerCaseSearchTerm}`
             );
             console.log(response.data)
             setSearchResults(response.data.items);

@@ -30,14 +30,17 @@ function ContactForm() {
             <label>
                 Name:
                 <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
+                <br></br>
             </label>
             <label>
                 Email:
                 <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+                <br></br>
             </label>
             <label>
                 Message:
                 <input value={message} onChange={(event) => setMessage(event.target.value)} />
+                <br></br>
             </label>
             <button type="submit">Submit</button>
         </form>
