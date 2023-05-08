@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
-// import ResultsList from "./ResultsList";
+import ResultsList from "./ResultsList";
 import axios from "axios"
 
 
@@ -13,7 +13,7 @@ const SearchPage = () => {
         try {
             let lowerCaseSearchTerm = searchTerm.toLowerCase();
             let response = await axios.get(
-                `http://127.0.0.1:5000/api/${lowerCaseSearchTerm}`
+                `http://127.0.0.1:5000/api/tracks/${lowerCaseSearchTerm}`
             );
             console.log(response.data)
             setSearchResults(response.data.items);
@@ -36,7 +36,7 @@ const SearchPage = () => {
                 setSearchResults={setSearchResults}
                 handleSubmit={handleSubmit}
             />
-            {/* <ResultsList searchResults={searchResults} /> */}
+            <ResultsList searchResults={searchResults} />
         </div>
     );
 };
