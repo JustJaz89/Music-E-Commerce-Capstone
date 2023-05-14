@@ -21,6 +21,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import AddTrack from './components/AddTrack/AddTrack';
 
 function App() {
 
@@ -42,6 +43,15 @@ function App() {
         <Route path="/tracks" element={<TracksPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-sm">
+            <div className="border-box">
+              <AddTrack/>
+            </div>
+          </div>
+        </div>
+      </div>
       <Footer />
     </div>
   );

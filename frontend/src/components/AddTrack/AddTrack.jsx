@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
-import "./AddNewSong.css";
+import "./AddTrack.css";
 
-const AddNewSong = (props) => {
+const AddTrack = (props) => {
 
     const [title, setTitle] = useState("");
-    const [artist, setArtist] = useState("");
-    const [album, setAlbum] = useState("");
+    const [running_time, setRunningTime] = useState("");
+    const [bpm, setBpm] = useState("");
     const [genre, setGenre] = useState("");
     const [release_date, setReleaseDate] = useState("");
-    const [running_time, setRunningTime] = useState(0)
+    const [price, setPrice] = useState("");
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newSong = {
+        let newTrack = {
             title: title,
-            artist: artist,
-            album: album,
+            running_time: running_time,
+            bpm: bpm,
             genre: genre,
             release_date: release_date,
-            running_time: running_time
+            price: price
         };
-        console.log(newSong);
-        props.addNewSongProperty(newSong)
+        console.log(newTrack);
+        props.addNewTrackProperty(newTrack)
     }
 
     return (
@@ -31,12 +31,12 @@ const AddNewSong = (props) => {
                 <input type="text" className="form-control" id="inputTitle" placeholder="Title" value={title} onChange={(event) => setTitle(event.target.value)} />
             </div>
             <div className="form-group">
-                <label>Artist</label>
-                <input type="text" className="form-control" id="inputArtist" placeholder="Artist" value={artist} onChange={(event) => setArtist(event.target.value)} />
+                <label>Running Time</label>
+                <input type="number" className="form-control" value={running_time} onChange={(event) => setRunningTime(parseFloat(event.target.value))} />
             </div>
             <div className="form-group">
-                <label>Album</label>
-                <input type="text" className="form-control" id="inputAlbum" placeholder="Album" value={album} onChange={(event) => setAlbum(event.target.value)} />
+                <label>BPM</label>
+                <input type="number" className="form-control" id="inputBpm" placeholder="BPM" value={bpm} onChange={(event) => setBpm(event.target.value)} />
             </div>
             <div className="form-group">
                 <label>Genre</label>
@@ -47,12 +47,12 @@ const AddNewSong = (props) => {
                 <input type="date" className="form-control" value={release_date} onChange={(event) => setReleaseDate(event.target.value)} />
             </div>
             <div className="form-group">
-                <label>Running Time</label>
-                <input type="number" className="form-control" value={running_time} onChange={(event) => setRunningTime(parseFloat(event.target.value))} />
+                <label>Price</label>
+                <input type="number" className="form-control" id="inputPrice" placeholder="Price" value={price} onChange={(event) => setPrice(event.target.value)} />
             </div>
             <button type="submit" className="btn btn-primary" style={{"margin-top": "1em"}} >Add</button>
         </form>
     );
 };
  
-export default AddNewSong;
+export default AddTrack;
