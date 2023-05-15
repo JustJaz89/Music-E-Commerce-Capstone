@@ -12,7 +12,7 @@ const AddTrack = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        let newTrack = {
+        let addTrack = {
             title: title,
             running_time: running_time,
             bpm: bpm,
@@ -20,8 +20,8 @@ const AddTrack = (props) => {
             release_date: release_date,
             price: price
         };
-        console.log(newTrack);
-        props.addNewTrackProperty(newTrack)
+        console.log(addTrack);
+        props.addTrackProperty(addTrack)
     }
 
     return (

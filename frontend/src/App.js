@@ -22,6 +22,7 @@ import Footer from "./components/Footer/Footer";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import AddTrack from './components/AddTrack/AddTrack';
+import DeleteTrack from './components/DeleteTrack/DeleteTrack';
 
 function App() {
 
@@ -48,6 +49,9 @@ function App() {
           <div className="col-sm">
             <div className="border-box">
               <AddTrack/>
+            </div>
+            <div className="border-box">
+              <DeleteTrack/>
             </div>
           </div>
         </div>
