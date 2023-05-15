@@ -23,6 +23,7 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 import AddTrack from './components/AddTrack/AddTrack';
 import DeleteTrack from './components/DeleteTrack/DeleteTrack';
+import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
 
@@ -48,10 +49,19 @@ function App() {
         <div className="row">
           <div className="col-sm">
             <div className="border-box">
-              <AddTrack/>
+              <h3 style={{margin: "1em"}}>Add
+              <medium className="text-muted">Track</medium></h3>
+              <AddTrack />
             </div>
             <div className="border-box">
-              <DeleteTrack/>
+              <h3 style={{margin: "1em"}}>Delete
+              <medium className="text-muted">Track</medium></h3>
+              <DeleteTrack />
+            </div>
+            <div className="border-box">
+              <h3 style={{margin: "1em"}}>Contact
+              <medium className="text-muted">Us</medium></h3>
+              <ContactForm />
             </div>
           </div>
         </div>
