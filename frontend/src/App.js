@@ -3,6 +3,10 @@ import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
+// New Imports
+// import React, { useState } from 'react';
+// import axios from "axios";
+
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -14,18 +18,64 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-// import TracksTable from './pages/TracksPage/TracksPage';
-// import SearchBar from './components/SearchBar/SearchBar';
-// import ContactForm from './components/ContactForm/ContactForm';
+import TracksTable from './pages/TracksPage/TracksPage';
+import SearchBar from './components/SearchBar/SearchBar';
+import MusicTable from './components/MusicTable/MusicTable';
+import EditTrack from "./components/EditTrack/EditTrack";
+import TrackForm from './components/TrackForm/TrackForm';
+import ContactForm from './components/ContactForm/ContactForm';
 // import { MusicPlayer } from './components/PlayingMusic/PlayingMusic';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import AddTrack from './components/AddTrack/AddTrack';
 import DeleteTrack from './components/DeleteTrack/DeleteTrack';
-import ContactForm from './components/ContactForm/ContactForm';
+// import ContactForm from './components/ContactForm/ContactForm';
 
 function App() {
+
+  // const [tracks, setTracks] = useState([]);
+  // const [toggle, setToggle] = useState();
+  // const [time, setTime] = useState();
+
+  // const filterTracks = (event) => {
+  //   let filterValue = event.target.value;
+  //   if (filterValue === "") {
+  //     getAllTracks();
+  //   } else {
+  //    let filteredTracks = tracks.filter(
+  //       (track) =>
+  //       track.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+  //       track.bpm.toLowerCase().includes(filterValue.toLowerCase()) ||
+  //       track.genre.toLowerCase().includes(filterValue.toLowerCase())
+  //     );
+  //     setTracks(filteredTracks);
+  //  }
+  // };
+
+  // const getAllTracks = async() =>{
+  //   let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
+  //   setTracks(response.data.tracks);
+  //   // setTime(response.data.total_running_time);
+  // }
+
+  // const deleteTrack = async (key) => {
+  //   await axios.delete(`http://127.0.0.1:5000/api/tracks/${key}`)
+  //   setToggle(!toggle)
+  // }
+
+  // const addTrack = async(newTrack) => {
+  //   await axios.post(`http://127.0.0.1:5000/api/tracks`, newTrack)
+  //   setToggle(!toggle);
+  // }
+
+  // const editTrack = async(id, updatedTrack) => {
+  //   await axios.put(`http://127.0.0.1:5000/api/tracks/${id}`, updatedTrack)
+  // }
+
+  // const getTracks = (tracks) => {
+  //   setTracks(tracks);
+  // };
 
   return (
     <div>
@@ -68,6 +118,17 @@ function App() {
       </div>
       <Footer />
     </div>
+    // <div>
+    //   <Navbar />
+    //   <div className="main">
+    //     <h1> Music Library </h1>
+    //     <TrackForm getTracks={getTracks} addTrack={addTrack} />
+    //     <p/>
+    //     <SearchBar filterTracks={filterTracks} />
+    //     <MusicTable toggle={toggle} tracks={tracks} getAllTracks={getAllTracks} filterTracks={filterTracks} time={time} deleteTrack={deleteTrack} editTrack={editTrack}/>
+    //   </div>
+    //   <Footer />
+    // </div>
   );
 }
 
