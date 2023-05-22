@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import TracksTable from '../../components/TracksTable/TracksTable';
+import TracksTable from '../../components/TracksTable/TracksTable';
 import SearchBar from '../../components/SearchBar/SearchBar';
 // import { MusicPlayer } from '../../components/PlayingMusic/PlayingMusic';
 
@@ -10,23 +10,24 @@ const TracksPage = (props) => {
 
     useEffect(() => {
         getAllTracks();
-    }, [])
+    }, []);
 
     async function getAllTracks() {
         let response = await axios.get(`http://127.0.0.1:5000/api/tracks`);
         setTracks(response.data)
-    }
+    };
 
     async function addNewTrack(newTrack) {
         let response = await axios.post('http://127.0.0.1:5000/api/tracks', newTrack);
         if(response.status === 201){
         await getAllTracks();
         }
-    }
+    };
 
     return (
         <div>
             <SearchBar  />
+            {/* <TracksTable /> */}
         </div>
     //     <div>
     //         <SearchBar />

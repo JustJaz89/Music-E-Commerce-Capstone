@@ -81,10 +81,11 @@ class TrackResource(Resource):
     def delete(self, track_id):
         track_from_db = Track.query.get_or_404(track_id)
         db.session.delete(track_from_db)
+        db.session.commit()
         return "", 204 
     
 # class GetTrackInformationResource(Resource):
-#     def get(self, track_id):
+#     def get(self, track_id, title, time, bpm, genre, release_date, price):
 #         tracks = Track.query.filter_by(track_id=track_id)
 #         tracks = tracks_schema.dump(tracks)
 #         response = {
