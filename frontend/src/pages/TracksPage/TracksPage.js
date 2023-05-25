@@ -3,6 +3,9 @@ import axios from 'axios';
 import TracksTable from '../../components/TracksTable/TracksTable';
 import SearchBar from '../../components/SearchBar/SearchBar';
 // import { MusicPlayer } from '../../components/PlayingMusic/PlayingMusic';
+import AddTrack from '../../components/AddTrack/AddTrack';
+import DeleteTrack from '../../components/DeleteTrack/DeleteTrack';
+import ContactForm from '../ContactPage/ContactPage';
 
 const TracksPage = (props) => {
 
@@ -26,8 +29,25 @@ const TracksPage = (props) => {
 
     return (
         <div>
-            <SearchBar  />
-            {/* <TracksTable /> */}
+            <div>
+                {/* <SearchBar  /> */}
+                <TracksTable parentTracks={tracks} />
+            </div>
+            <div className="border-box">
+                <h3 style={{margin: "1em"}}>Add
+                <medium className="text-muted">Track</medium></h3>
+                <AddTrack />
+            </div>
+            <div className="border-box">
+                <h3 style={{margin: "1em"}}>Delete
+                <medium className="text-muted">Track</medium></h3>
+                <DeleteTrack />
+            </div>
+            <div className="border-box">
+                {/* <h3 style={{margin: "1em"}}>Contact
+                <medium className="text-muted">Us</medium></h3> */}
+                <ContactForm />
+            </div>
         </div>
     //     <div>
     //         <SearchBar />

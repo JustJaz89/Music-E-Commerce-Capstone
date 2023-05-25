@@ -50,7 +50,7 @@ const DeleteTrack = (props) => {
                 <label>Price</label>
                 <input type="number" className="form-control" id="inputPrice" placeholder="Price" value={price} onChange={(event) => setPrice(event.target.value)} />
             </div>
-            <button type="submit" className="btn btn-primary" style={{"margin-top": "1em"}} >Delete</button>
+            <button type="submit" className="btn btn-primary" style={{"margin-top": "1em"}} >Delete Track</button>
         </form>
     );
 };

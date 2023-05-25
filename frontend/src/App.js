@@ -98,7 +98,10 @@ function App() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm">
-            <div className="border-box">
+            {/* <div className="border-box">
+              <TracksTable filteredTracks />
+            </div> */}
+            {/* <div className="border-box">
               <h3 style={{margin: "1em"}}>Add
               <medium className="text-muted">Track</medium></h3>
               <AddTrack />
@@ -112,7 +115,7 @@ function App() {
               <h3 style={{margin: "1em"}}>Contact
               <medium className="text-muted">Us</medium></h3>
               <ContactForm />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

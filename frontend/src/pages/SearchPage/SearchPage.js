@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ResultsList from "./ResultsList";
-import axios from "axios"
+import axios from "axios";
+import TracksTable from '../../components/TracksTable/TracksTable';
 
 
 const SearchPage = () => {
@@ -37,6 +38,10 @@ const SearchPage = () => {
                 handleSubmit={handleSubmit}
             />
             <ResultsList searchResults={searchResults} />
+            <div>
+                {/* <SearchBar  /> */}
+                {/* <TracksTable parentTracks={tracks} /> */}
+            </div>
         </div>
     );
 };

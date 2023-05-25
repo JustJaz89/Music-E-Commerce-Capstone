@@ -19,7 +19,7 @@ const TracksTable = (props) => {
         <div className="container">
             <div>
                 <SearchBar search={search} setSearch={setSearch}/>
-                <TracksPage />
+                {/* <TracksPage /> */}
             </div>
             <table className="table table-striped table-dark">
                 <thead>

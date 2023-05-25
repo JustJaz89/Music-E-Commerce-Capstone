@@ -50,7 +50,7 @@ const AddTrack = (props) => {
                 <label>Price</label>
                 <input type="number" className="form-control" id="inputPrice" placeholder="Price" value={price} onChange={(event) => setPrice(event.target.value)} />
             </div>
-            <button type="submit" className="btn btn-primary" style={{"margin-top": "1em"}} >Add</button>
+            <button type="submit" className="btn btn-primary" style={{"margin-top": "1em"}} >Add Track</button>
         </form>
     );
 };
